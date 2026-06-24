@@ -1,0 +1,18 @@
+# hlint configuration for hgitignore
+# Baseline: zero warnings. All hints are errors in CI.
+
+- arguments: [--color=auto]
+
+# Forbidden functions — mirror the list in SPEC.md.
+# These are caught by -Werror in GHC for most cases, but hlint
+# provides an extra layer for patterns GHC warnings don't cover.
+- warn: {name: "Use head"}
+- warn: {name: "Use tail"}
+- warn: {name: "Use init"}
+- warn: {name: "Use last"}
+- warn: {name: "Use read"}
+- warn: {name: "Use fromJust"}
+
+# Ignore hints that conflict with project style.
+- ignore: {name: "Use newtype wrapper"}
+- ignore: {name: "Redundant do"}

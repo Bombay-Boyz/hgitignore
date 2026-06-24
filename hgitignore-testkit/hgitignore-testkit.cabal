@@ -1,0 +1,57 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.38.1.
+--
+-- see: https://github.com/sol/hpack
+
+name:           hgitignore-testkit
+version:        0.1.0.0
+synopsis:       Test generators, fixtures, and parity helpers for hgitignore
+description:    Shared test infrastructure: Hedgehog generators, Git parity helpers, and corpus fixture loaders. Never depended on by production code.
+license:        AllRightsReserved
+build-type:     Simple
+
+library
+  exposed-modules:
+      HGitIgnore.Testkit.Generators
+      HGitIgnore.Testkit.Fixtures
+      HGitIgnore.Testkit.Parity
+  other-modules:
+      Paths_hgitignore_testkit
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Wincomplete-patterns -Werror
+  build-depends:
+      aeson
+    , base >=4.14 && <5
+    , directory
+    , filepath
+    , hedgehog
+    , hgitignore-core
+    , process
+    , text
+    , vector
+    , yaml
+  default-language: Haskell2010
+
+test-suite hgitignore-testkit-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_hgitignore_testkit
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Wincomplete-patterns -Werror -Wall -Wcompat -Wincomplete-patterns -Werror
+  build-depends:
+      aeson
+    , base >=4.14 && <5
+    , directory
+    , filepath
+    , hedgehog
+    , hgitignore-core
+    , hgitignore-testkit
+    , process
+    , text
+    , vector
+    , yaml
+  default-language: Haskell2010

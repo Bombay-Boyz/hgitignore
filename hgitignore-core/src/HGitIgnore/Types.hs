@@ -1,0 +1,1 @@
+module HGitIgnore.Types () where

@@ -1,0 +1,1 @@
+module HGitIgnore.Error () where

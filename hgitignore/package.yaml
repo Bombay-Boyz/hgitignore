@@ -1,0 +1,40 @@
+name:        hgitignore
+version:     0.1.0.0
+synopsis:    Haskell implementation of Git ignore semantics
+description: >
+  User-facing API for .gitignore parsing. Wraps hgitignore-core with
+  IO helpers for reading pattern files from the filesystem.
+
+author:      ""
+maintainer:  ""
+license:     AllRightsReserved
+
+ghc-options:
+  - -Wall
+  - -Wcompat
+  - -Wincomplete-patterns
+  - -Werror
+
+dependencies:
+  - base >= 4.14 && < 5
+  - text
+  - hgitignore-core
+
+library:
+  source-dirs: src
+  exposed-modules:
+    - HGitIgnore.IO
+
+tests:
+  hgitignore-test:
+    main:        Spec.hs
+    source-dirs: test
+    ghc-options:
+      - -Wall
+      - -Wcompat
+      - -Wincomplete-patterns
+      - -Werror
+    dependencies:
+      - hgitignore
+      - hgitignore-core
+      - hedgehog

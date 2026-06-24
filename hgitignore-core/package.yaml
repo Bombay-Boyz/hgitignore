@@ -1,0 +1,52 @@
+name:        hgitignore-core
+version:     0.1.0.0
+synopsis:    Core pure logic for Git ignore semantics
+description: >
+  Pure AST, lexer, parser, compiler, and matcher for .gitignore patterns.
+  No IO, no filesystem access, no process spawning.
+
+author:      ""
+maintainer:  ""
+license:     AllRightsReserved
+
+ghc-options:
+  - -Wall
+  - -Wcompat
+  - -Wincomplete-patterns
+  - -Werror
+
+dependencies:
+  - base >= 4.14 && < 5
+  - text
+  - megaparsec
+  - vector
+
+library:
+  source-dirs: src
+  exposed-modules:
+    - HGitIgnore.Types
+    - HGitIgnore.AST
+    - HGitIgnore.Error
+    - HGitIgnore.Normalize
+    - HGitIgnore.Pattern
+    - HGitIgnore.Match
+    - HGitIgnore.Compile
+  other-modules:
+    - HGitIgnore.Internal.Lexer
+    - HGitIgnore.Internal.Parser
+    - HGitIgnore.Internal.Validate
+    - HGitIgnore.Internal.NFA
+    - HGitIgnore.Internal.DFA
+
+tests:
+  hgitignore-core-test:
+    main:        Spec.hs
+    source-dirs: test
+    ghc-options:
+      - -Wall
+      - -Wcompat
+      - -Wincomplete-patterns
+      - -Werror
+    dependencies:
+      - hgitignore-core
+      - hedgehog

@@ -1,0 +1,54 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.38.1.
+--
+-- see: https://github.com/sol/hpack
+
+name:           hgitignore-core
+version:        0.1.0.0
+synopsis:       Core pure logic for Git ignore semantics
+description:    Pure AST, lexer, parser, compiler, and matcher for .gitignore patterns. No IO, no filesystem access, no process spawning.
+license:        AllRightsReserved
+build-type:     Simple
+
+library
+  exposed-modules:
+      HGitIgnore.Types
+      HGitIgnore.AST
+      HGitIgnore.Error
+      HGitIgnore.Normalize
+      HGitIgnore.Pattern
+      HGitIgnore.Match
+      HGitIgnore.Compile
+  other-modules:
+      HGitIgnore.Internal.Lexer
+      HGitIgnore.Internal.Parser
+      HGitIgnore.Internal.Validate
+      HGitIgnore.Internal.NFA
+      HGitIgnore.Internal.DFA
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Wincomplete-patterns -Werror
+  build-depends:
+      base >=4.14 && <5
+    , megaparsec
+    , text
+    , vector
+  default-language: Haskell2010
+
+test-suite hgitignore-core-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_hgitignore_core
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Wincomplete-patterns -Werror -Wall -Wcompat -Wincomplete-patterns -Werror
+  build-depends:
+      base >=4.14 && <5
+    , hedgehog
+    , hgitignore-core
+    , megaparsec
+    , text
+    , vector
+  default-language: Haskell2010

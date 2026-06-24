@@ -1,0 +1,42 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.38.1.
+--
+-- see: https://github.com/sol/hpack
+
+name:           hgitignore
+version:        0.1.0.0
+synopsis:       Haskell implementation of Git ignore semantics
+description:    User-facing API for .gitignore parsing. Wraps hgitignore-core with IO helpers for reading pattern files from the filesystem.
+license:        AllRightsReserved
+build-type:     Simple
+
+library
+  exposed-modules:
+      HGitIgnore.IO
+  other-modules:
+      Paths_hgitignore
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Wincomplete-patterns -Werror
+  build-depends:
+      base >=4.14 && <5
+    , hgitignore-core
+    , text
+  default-language: Haskell2010
+
+test-suite hgitignore-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_hgitignore
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Wincomplete-patterns -Werror -Wall -Wcompat -Wincomplete-patterns -Werror
+  build-depends:
+      base >=4.14 && <5
+    , hedgehog
+    , hgitignore
+    , hgitignore-core
+    , text
+  default-language: Haskell2010

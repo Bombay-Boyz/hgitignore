@@ -1,0 +1,12 @@
+# fourmolu configuration for hgitignore
+# Chosen formatter: fourmolu (over ormolu) for its support of per-project
+# configuration via this file. See docs/architecture.md.
+
+indentation: 2
+comma-style: leading
+record-brace-space: true
+indent-wheres: true
+diff-friendly-import-export: true
+respectful: true
+haddock-style: multi-line
+newlines-between-decls: 1

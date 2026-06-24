@@ -1,0 +1,9 @@
+resolver: lts-22.6
+
+packages:
+  - hgitignore-core
+  - hgitignore
+  - hgitignore-testkit
+
+extra-deps:
+  - terminal-size-0.3.3
